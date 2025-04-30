@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Full Page Image with Delayed Next Button</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
+
+    .background {
+      background-image: url('scene4.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      position: relative;
+    }
+
+    .next-button {
+      margin-bottom: 30px;
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 15px 40px;
+      font-size: 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      display: none; /* Hide the button initially */
+    }
+
+    .next-button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="background">
+    <button class="next-button" id="nextButton" onclick="goNext()">Next</button>
+  </div>
+
+  <script>
+    function goNext() {
+      window.location.href = "scene5.html"; // Replace with your real next page URL
+    }
+
+    // Show the button after 10 seconds (10,000 milliseconds)
+    setTimeout(function() {
+      document.getElementById('nextButton').style.display = 'inline-block';
+    }, 5000);
+  </script>
+
+</body>
+</html>

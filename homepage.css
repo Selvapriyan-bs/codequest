@@ -1,0 +1,58 @@
+/* Background and global styling */
+body {
+  background: url('https://opengameart.org/sites/default/files/preview_306.png') no-repeat center center fixed;
+  background-size: cover;
+  font-family: "Press Start 2P", cursive, sans-serif;
+  color: white;
+  padding: 20px;
+}
+
+/* Home page styling */
+#homePage {
+  margin-top: 100px;
+  margin-left: 80px;
+}
+
+/* Title and description text */
+#homePage h1,
+#homePage p {
+  font-size: 20px;
+  margin: 15px 0;
+  text-align: left;
+}
+
+/* Button group moved to right */
+.button-group {
+  position: absolute;
+  top: 120px;
+  right: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Buttons styling */
+.home-button {
+  padding: 12px 24px;
+  font-size: 20px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.home-button:hover {
+  background: #388e3c;
+}
+
+/* Hidden elements */
+.hidden {
+  display: none;
+}
+
+/* Game area */
+#game {
+  display: none;
+}

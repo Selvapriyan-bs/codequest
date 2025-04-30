@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module Selection</title>
+    <link rel="stylesheet" href="chapter 1.css">
+</head>
+<body>
+
+    <div class="form-box">
+        <h1>Select Modules</h1>
+        <form>
+            <div class="button-container">
+                <button type="button" class="module-btn" id="basic-syntax" onclick="goTobasicsyntax()">While loop</button>
+                <button type="button" class="module-btn" id="datatypes" onclick="goTodata()">For loop</button>
+                
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function toggleSelection(module) {
+            const button = document.getElementById(module);
+            button.classList.toggle('selected'); // Toggle "selected" class for active buttons
+        }
+
+        // Redirect to login page when "Basic Syntax" is clicked
+        function goTobasicsyntax() {
+            window.location.href = "chapter 3/while/scene1.html"; // Redirect to login page
+        }
+        function goTodata() {
+            window.location.href = "chapter 3/for/secne1.html"; // Redirect to login page
+        }
+    </script>
+
+</body>
+</html>

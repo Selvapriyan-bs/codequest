@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Code Quest RPG - Home</title>
+  <link rel="stylesheet" href="homepage.css">
+  <style>
+    body {
+    background: url('C:/Users/selva/Desktop/game/back.png');
+    background-size: cover;
+      background-color: #2e2e2e;
+      margin: 0;
+      font-family: "Press Start 2P", cursive, sans-serif;
+      color: white;
+      text-align: center;
+    }
+    .button-group {
+      position: absolute;
+      top: 50%;
+      right: 50px;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .home-button {
+      padding: 20px 40px;
+      font-size: 28px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      text-align: center;
+    }
+    .home-button:hover {
+      background: #388e3c;
+    }
+    .streak {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 28px;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 15px 25px;
+      border-radius: 10px;
+    }
+    #homePage h1 {
+      font-size: 64px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Home Page -->
+<div id="homePage">
+  <h1>🧠 Code Quest RPG</h1>
+  <p>Prepare yourself for a coding adventure!</p>
+</div>
+
+<!-- Streak Display -->
+<div class="streak">
+  🏆 Streak: 0
+</div>
+
+<!-- Button Group aligned to middle right -->
+<div class="button-group">
+    <button class="home-button" onclick="goToLogin()">Start Game</button>
+  <button class="home-button" onclick="openCustomize()">Customize</button>
+  <button class="home-button" onclick="openSettings()">Settings</button>
+</div>
+
+<!-- Settings Modal -->
+<div id="settingsModal" class="hidden">
+  <h2>⚙️ Settings</h2>
+  <p>Settings will be available soon...</p>
+  <div class="button-group">
+    <button class="home-button" onclick="closeSettings()">Close</button>
+  </div>
+</div>
+
+<!-- Customize Modal -->
+<div id="customizeModal" class="hidden">
+  <h2>🎨 Customize</h2>
+  <p>Customization coming soon...</p>
+  <div class="button-group">
+    <button class="home-button" onclick="closeCustomize()">Close</button>
+  </div>
+</div>
+
+<!-- Game Area (Initially Hidden) -->
+<div id="game" style="display: none;">
+  <!-- Your game content will be loaded here -->
+</div>
+
+<script src="homepage.js"></script>
+<script>
+function goToLogin() {
+  window.location.href = "loginpage.html";  // Redirect to the login page
+}
+function goToRegister() {
+  window.location.href = "register.html";
+}
+</script>
+
+</body>
+</html>

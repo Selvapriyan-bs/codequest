@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Quest RPG</title>
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="inds.css">
+</head>
+<body>
+    <!-- Player Stats (Top Center) -->
+    <div id="player-stats">
+        <div class="level-display">Lv. <span id="level">1</span></div>
+        <div class="exp-bar">
+            <div id="exp-progress" class="exp-progress" style="width: 0%"></div>
+        </div>
+        <div class="exp-text">EXP: <span id="exp">0</span>/<span id="exp-needed">100</span></div>
+    </div>
+
+    <!-- Game World -->
+    <div id="game-world">
+        <div id="hero"></div>
+    </div>
+
+    <!-- Battle Screen -->
+    <div id="battle-screen" class="hidden">
+        <div class="health-bars">
+            <div class="player-health">
+                <h4>HERO</h4>
+                <div class="health-bar">
+                    <div id="player-health-bar" class="current-health" style="width: 100%"></div>
+                </div>
+            </div>
+            <div class="enemy-health">
+                <h4 id="enemy-name">BUG</h4>
+                <div class="health-bar">
+                    <div id="enemy-health-bar" class="current-health" style="width: 100%"></div>
+                </div>
+            </div>
+        </div>
+        <div class="hero">
+            <img id="hero" src="knight.png" alt="Hero">
+        </div>
+
+        <div class="enemy">
+            <img id="enemy-img" src="" alt="Enemy">
+        </div>
+
+        <div class="question-box">
+            <div id="question-text">QUESTION WILL APPEAR HERE</div>
+            <textarea id="player-answer" rows="4" cols="50"></textarea>
+            <div class="button-group">
+                <button id="submit-btn">ATTACK!</button>
+                <button id="solution-btn">Show Solution</button>
+            </div>
+            <p id="hint-text" class="hidden"></p>
+        </div>
+    </div>
+
+    <!-- Result Screen -->
+    <div id="result-screen" class="hidden">
+        <div class="result-box">
+            <h2 id="result-message"></h2>
+            <button id="restart-btn">Continue Quest</button>
+        </div>
+    </div>
+    
+
+    <script src="inds.js"></script>
+</body>
+</html>

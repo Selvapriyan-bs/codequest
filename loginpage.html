@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Code Quest RPG - Login</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #2e2e2e; /* Solid Grey Background */
+      font-family: "Press Start 2P", cursive, sans-serif;
+      color: white;
+      text-align: center;
+      margin: 0;
+    }
+
+    .login-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.75);
+      padding: 40px;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 1400px;
+    }
+
+    .side-image {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .side-image img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    #loginPage {
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #loginPage h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .login-input {
+      width: 80%;
+      padding: 15px;
+      margin: 10px 0;
+      font-size: 18px;
+      border-radius: 8px;
+      border: none;
+    }
+
+    .login-button {
+      padding: 15px 30px;
+      font-size: 22px;
+      margin-top: 20px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .login-button:hover {
+      background: #388e3c;
+    }
+
+    .register-link {
+      margin-top: 15px;
+      font-size: 16px;
+      color: #00aced;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="login-container">
+  <!-- Left Side Image -->
+  <div class="side-image">
+    <img src="C:\Users\selva\Desktop\game\left.png" alt="Left Image"> <!-- Replace with your left image path -->
+  </div>
+
+  <!-- Login Form -->
+  <div id="loginPage">
+    <h1>🧠 Code Quest RPG</h1>
+    <input type="text" id="username" class="login-input" placeholder="Enter Username">
+    <input type="password" id="password" class="login-input" placeholder="Enter Password">
+    <br>
+    <button class="login-button" onclick="login()">Login</button>
+    <div class="register-link" onclick="goToRegister()">Don't have an account? Register</div>
+  </div>
+
+  <!-- Right Side Image -->
+  <div class="side-image">
+    <img src="C:\Users\selva\Desktop\game\right.png" alt="Right Image"> <!-- Replace with your right image path -->
+  </div>
+</div>
+
+<script>
+  function login() {
+    const username = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value.trim();
+
+    if (username === '' || password === '') {
+      alert('Please enter both username and password!');
+      return;
+    }
+
+    // Retrieve stored credentials from localStorage
+    const storedUsername = localStorage.getItem('username');
+    const storedPassword = localStorage.getItem('password');
+
+    // Authenticate the user
+    if (username === storedUsername && password === storedPassword) {
+      alert('Welcome ' + username + '! Starting your quest...');
+      window.location.href = "chapter page.html";  // Redirect to game/home page
+    } else {
+      alert('Invalid username or password!');
+    }
+  }
+
+  function goToRegister() {
+    window.location.href = "registerpage.html"; // Redirect to register page
+  }
+</script>
+
+</body>
+</html>

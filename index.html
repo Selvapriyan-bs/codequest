@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Code Quest RPG</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="game">
+
+  <!-- Battle Area -->
+  <div id="battle">
+    <img id="hero" src="https://opengameart.org/sites/default/files/knight_m_idle_anim_f0.png" alt="Hero">
+  <img id="enemy" src="https://opengameart.org/sites/default/files/monster_idle_anim_f0.png" alt="Enemy">
+  </div>
+
+  <!-- Stats -->
+  <div id="status">
+    ❤️ Hero HP: <span id="heroHP">100</span> | 
+    💀 Enemy HP: <span id="enemyHP">50</span> | 
+    🧠 Level: <span id="level">1</span>
+  </div>
+
+  <!-- Challenge Box -->
+  <div id="challengeBox">
+    <p id="challengeText"><strong>Challenge:</strong> What is the correct C syntax to print "Hello World"?</p>
+    <input type="text" id="answerInput" placeholder="Type your C code here">
+    <button onclick="submitAnswer()">Attack!</button>
+  </div>
+
+  <!-- Mini-Game Area (Hidden initially) -->
+  <div id="miniGame" class="hidden">
+    <h2>🎲 Mini Game: Jumbled Word</h2>
+    <p id="jumbledWord"></p>
+    <input type="text" id="jumbleAnswer" placeholder="Unscramble the word">
+    <button onclick="submitJumble()">Submit</button>
+  </div>
+
+  <!-- Boss Battle Area (Hidden initially) -->
+  <div id="bossBattle" class="hidden">
+    <h2>👹 Boss Battle!</h2>
+    <p id="bossChallenge"></p>
+    <input type="text" id="bossInput" placeholder="Type your C code here">
+    <button onclick="submitBossAnswer()">Attack Boss!</button>
+  </div>
+
+  <!-- Message / Results -->
+  <div id="message"></div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

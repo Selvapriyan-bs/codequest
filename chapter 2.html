@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module Selection</title>
+    <link rel="stylesheet" href="chapter 1.css">
+</head>
+<body>
+
+    <div class="form-box">
+        <h1>Select Modules</h1>
+        <form>
+            <div class="button-container">
+                <button type="button" class="module-btn" id="basic-syntax" onclick="goTobasicsyntax()">if-else and if-else ladder</button>
+                <button type="button" class="module-btn" id="datatypes" onclick="goTodata()">Nested if</button>
+                
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function toggleSelection(module) {
+            const button = document.getElementById(module);
+            button.classList.toggle('selected'); // Toggle "selected" class for active buttons
+        }
+
+        // Redirect to login page when "Basic Syntax" is clicked
+        function goTobasicsyntax() {
+            window.location.href = "chapter 2/if else/scene1.html"; // Redirect to login page
+        }
+        function goTodata() {
+            window.location.href = "chapter 2/nested if.html/scene1.html"; // Redirect to login page
+        }
+    </script>
+
+</body>
+</html>

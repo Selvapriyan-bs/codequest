@@ -1,0 +1,61 @@
+
+body {
+  background: #282c34;
+  color: white;
+  font-family: "Press Start 2P", cursive, sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+#game {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+#battle {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#hero, #enemy {
+  width: 120px;
+  height: auto;
+}
+
+#status {
+  margin: 20px;
+  font-size: 14px;
+}
+
+#challengeBox, #miniGame, #bossBattle {
+  margin-top: 20px;
+}
+
+input {
+  padding: 10px;
+  width: 80%;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+#message {
+  margin-top: 20px;
+  font-size: 18px;
+}

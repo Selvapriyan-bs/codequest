@@ -1,0 +1,315 @@
+:root {
+    --dark-bg: #0a0a2a;         /* Deep dark blue */
+    --darker-bg: #050515;       /* Near-black blue */
+    --gold-accent: #d4af37;     /* Medieval gold */
+    --light-gold: #f4e5c2;      /* Soft gold text */
+    --health-green: #00c800;    /* Vibrant health green */
+    --health-red: #ff4d4d;      /* Glowing health red */
+    --exp-purple: #7a2dbe;      /* Royal purple EXP */
+    --text-primary: #f0f0f0;    /* Main text */
+    --text-secondary: #cccccc;  /* Secondary text */
+    --code-bg: #0e0e2a;         /* Code input background */
+}
+
+/* Base Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'MedievalSharp', cursive;
+    overflow: hidden;
+    background-color: var(--dark-bg);
+    color: var(--text-primary);
+}
+
+/* Player Stats */
+#player-stats {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+    border: 2px solid var(--gold-accent);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 100;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+}
+
+.exp-bar {
+    width: 200px;
+    height: 10px;
+    background: var(--darker-bg);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.exp-progress {
+    height: 100%;
+    background: linear-gradient(90deg, var(--exp-purple), #9b59b6);
+    transition: width 0.5s;
+}
+
+.level-display {
+    font-size: 1.2em;
+    color: var(--gold-accent);
+    text-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+}
+
+/* Game World */
+#game-world {
+    width: 100vw;
+    height: 100vh;
+    background: 
+        url('Fight-bg.png') no-repeat center center;
+    background-size: cover;
+    position: relative;
+}
+
+#hero {
+    width: 150px;
+    height: 170px;
+    filter: drop-shadow(0 0 12px rgba(251, 213, 43, 0.7));
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left;
+    position: absolute;
+    bottom: 450px;
+    left: 40%;
+
+    
+    
+    
+}
+
+
+
+/* Battle Screen */
+#battle-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+}
+
+.health-bars {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin-bottom: 20px;
+    gap: 20px;
+}
+
+.health-bar {
+    width: 200px;
+    height: 20px;
+    background: var(--darker-bg);
+    border: 2px solid var(--gold-accent);
+    margin-top: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.current-health {
+    height: 100%;
+    transition: width 0.3s ease-out;
+}
+
+.player-health .current-health {
+    background: var(--health-green);
+    box-shadow: 0 0 8px rgba(0, 200, 0, 0.6);
+}
+
+.enemy-health .current-health {
+    background: var(--health-red);
+    box-shadow: 0 0 8px rgba(255, 77, 77, 0.6);
+}
+
+.enemy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-left: 10%;
+}
+.hero img{
+    width: 160px;
+    height:190px;
+    filter: drop-shadow(0 0 12px rgba(251, 213, 43, 0.7));
+    
+}
+
+.enemy img {
+    width: 150px;
+    height: 190px;
+    filter: drop-shadow(0 0 12px rgba(255, 50, 50, 0.7));
+    
+}
+
+/* Question Box */
+.question-box {
+    background: rgba(20, 20, 60, 0.9);
+    padding: 30px;
+    border: 2px solid var(--gold-accent);
+    border-radius: 10px;
+    width: 60%;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.3);
+}
+
+#question-text {
+    margin-bottom: 20px;
+    color: var(--light-gold);
+    font-size: 1.2em;
+    text-shadow: 0 0 5px rgba(212, 175, 55, 0.4);
+}
+
+#player-answer {
+    width: 90%;
+    height: 100px;
+    font-family: 'Courier New', monospace;
+    padding: 10px;
+    margin-bottom: 15px;
+    background: var(--code-bg);
+    color: var(--text-primary);
+    border: 1px solid var(--gold-accent);
+    resize: none;
+    font-size: 1em;
+    line-height: 1.5;
+}
+
+#player-answer:focus {
+    outline: none;
+    border-color: var(--light-gold);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+#submit-btn, #restart-btn {
+    padding: 10px 20px;
+    background: linear-gradient(to bottom, var(--gold-accent), #a67c00);
+    border: none;
+    border-radius: 5px;
+    color: var(--text-dark);
+    font-weight: bold;
+    cursor: pointer;
+    font-family: 'MedievalSharp', cursive;
+    font-size: 1.1em;
+    transition: all 0.2s;
+}
+
+#submit-btn:hover, #restart-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.7);
+}
+
+#solution-btn {
+    padding: 8px 15px;
+    background: linear-gradient(to bottom, var(--exp-purple), #4b0082);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+#solution-btn:hover {
+    background: linear-gradient(to bottom, #7b1fa2, #5e0082);
+}
+
+#hint-text {
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+
+/* Result Screen */
+#result-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(5, 5, 21, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 300;
+}
+
+.result-box {
+    background: rgba(20, 20, 60, 0.95);
+    padding: 40px;
+    border: 3px solid var(--gold-accent);
+    border-radius: 10px;
+    text-align: center;
+    width: 50%;
+    max-width: 500px;
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+}
+
+#result-message {
+    color: var(--light-gold);
+    font-size: 2em;
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.7);
+}
+
+/* Utility Classes */
+.hidden {
+    display: none !important;
+}
+
+.flash {
+    animation: flash 1s;
+}
+
+@keyframes flash {
+    0% { background-color: rgba(212, 175, 55, 0.3); }
+    100% { background-color: var(--code-bg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .question-box {
+        width: 90%;
+        padding: 20px;
+    }
+    
+    .health-bars {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #player-answer {
+        height: 80px;
+    }
+    
+    .result-box {
+        width: 80%;
+    }
+    
+    .button-group {
+        flex-direction: column;
+    }
+    
+    #submit-btn, #solution-btn {
+        width: 100%;
+        margin: 5px 0;
+    }
+}

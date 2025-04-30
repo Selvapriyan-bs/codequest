@@ -1,0 +1,47 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('C:/Users/selva/Desktop/game/back.png') no-repeat center center/cover; /* background image */
+    background-size:cover;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+.form-box {
+    background-color: rgba(28, 28, 28, 0.85); /* semi-transparent dark background */
+    padding: 60px;
+    width: 500px;
+    border-radius: 16px;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+h1 {
+    color: #fff;
+    font-size: 40px;
+    margin-bottom: 40px;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.chapter-btn {
+    padding: 18px 35px;
+    font-size: 24px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.chapter-btn:hover {
+    background-color: #45a049;
+    transform: scale(1.08);
+}

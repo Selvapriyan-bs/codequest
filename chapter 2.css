@@ -1,0 +1,71 @@
+body {
+    background: url('C:/Users/selva/Desktop/game/chapter page back.jpg') no-repeat center center/cover; /* background image */
+    background-size:cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #2e2e2e;
+    font-family: "Press Start 2P", cursive, sans-serif;
+    color: white;
+    text-align: center;
+    flex-direction: column;
+    margin: 0;
+}
+
+.form-box {
+    background-color: rgba(28, 28, 28, 0.85); /* semi-transparent dark background */
+    padding: 60px;
+    width: 500px;
+    border-radius: 16px;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.module-btn {
+    padding: 15px 30px;
+    font-size: 20px;
+    margin-top: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.module-btn:hover {
+        background-color: #45a049;
+        transform: scale(1.08);
+    }
+
+.module-btn.selected {
+    background-color: #45a049; /* Change color when button is selected */
+}
+
+.submit-btn {
+    padding: 15px 30px;
+    font-size: 22px;
+    margin-top: 20px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background: #388e3c;
+}

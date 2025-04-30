@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Code Quest RPG - Register</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #2e2e2e;
+      font-family: "Press Start 2P", cursive, sans-serif;
+      color: white;
+      text-align: center;
+      flex-direction: column;
+      margin: 0;
+    }
+    #container {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+    .side-image {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+    }
+    #registerPage {
+      background: rgba(0, 0, 0, 0.75);
+      padding: 40px;
+      border-radius: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    #registerPage h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+    .register-input {
+      width: 80%;
+      padding: 15px;
+      margin: 10px 0;
+      font-size: 18px;
+      border-radius: 8px;
+      border: none;
+    }
+    .register-button {
+      padding: 15px 30px;
+      font-size: 22px;
+      margin-top: 20px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .register-button:hover {
+      background: #388e3c;
+    }
+    .login-link {
+      margin-top: 15px;
+      font-size: 16px;
+      color: #00aced;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  .side-image {
+  width: 500px;
+  height: 500px;
+  object-fit: contain;
+}
+  </style>
+</head>
+<body>
+
+<div id="container">
+  <img  src="C:\Users\selva\Desktop\game\left.png" alt="Left Character" class="side-image">
+  
+  <div id="registerPage">
+    <h1>🧠 Register</h1>
+    <input type="text" id="newUsername" class="register-input" placeholder="Create Username">
+    <input type="password" id="newPassword" class="register-input" placeholder="Create Password">
+    <input type="password" id="confirmPassword" class="register-input" placeholder="Confirm Password">
+    <br>
+    <button class="register-button" onclick="register()">Sign Up</button>
+    <div class="login-link" onclick="goToLogin()">Already have an account? Login</div>
+  </div>
+  
+  <img src="C:\Users\selva\Desktop\game\right.png" alt="Right Character" class="side-image">
+</div>
+
+<script>
+function register() {
+  const username = document.getElementById('newUsername').value.trim();
+  const password = document.getElementById('newPassword').value.trim();
+  const confirmPassword = document.getElementById('confirmPassword').value.trim();
+
+  if (username && password && confirmPassword) {
+    if (password === confirmPassword) {
+      localStorage.setItem('username', username);
+      localStorage.setItem('password', password);
+      alert('Account created successfully! Now login.');
+      window.location.href = "loginpage.html";
+    } else {
+      alert('Passwords do not match! Please try again.');
+    }
+  } else {
+    alert('Please fill out all fields!');
+  }
+}
+function goToLogin() {
+  window.location.href = "loginpage.html"; // Redirect to login page
+}
+</script>
+
+</body>
+</html>

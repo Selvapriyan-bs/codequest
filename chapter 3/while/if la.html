@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Hero RPG - Mini Game</title>
+    <link rel="stylesheet" href="refrain.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="character left">
+            <img src="left.png" alt="Left Character" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        
+        <div class="problem-statement">
+            <div class="cloud" id="question">
+                <!-- The question will be loaded here -->
+            </div>
+        </div>
+        
+        <div class="answer-container">
+            <textarea id="answer" placeholder="Write your answer here..."></textarea>
+        </div>
+        
+        <button class="submit-btn" onclick="checkAnswer()">Submit</button>
+        
+        <div class="character right">
+            <img src="right.png" alt="Right Character" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+    </div>
+
+    <script src="if la.js"></script>
+</body>
+</html>

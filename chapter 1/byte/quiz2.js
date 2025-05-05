@@ -33,8 +33,6 @@ const quizData = [
     correct: "It indicates the address of the variable to store the input"
   }
 ];
-
-
 let currentQuestion = 0;
 let score = 0;
 
@@ -47,7 +45,7 @@ const nextBtn = document.getElementById('next-btn');
 const retryBtn = document.createElement('button');
 retryBtn.textContent = "Retry Quiz";
 retryBtn.classList.add('next-btn', 'hidden');
-retryBtn.style.marginTop = "10px"; // Some space between Next and Retry
+retryBtn.style.marginTop = "10px";
 retryBtn.onclick = retryQuiz;
 document.querySelector('.quiz-container').appendChild(retryBtn);
 
@@ -64,7 +62,7 @@ function loadQuestion() {
     optionsBox.appendChild(button);
   });
 
-  nextBtn.classList.add('hidden'); // Hide Next by default
+  nextBtn.classList.add('hidden');
 }
 
 const moveNextBtn = document.getElementById('move-next-btn');
@@ -82,47 +80,43 @@ function selectAnswer(selected, buttonClicked) {
 
   buttonClicked.style.color = "white";
 
-  // Disable all buttons
   Array.from(optionsBox.children).forEach(button => button.disabled = true);
 
   if (currentQuestion === quizData.length - 1) {
-    // If it is the last question, show NEXT button
-    nextBtn.classList.remove('hidden');
-  } else {
-    // If not last question, auto move to next
+    nextBtn.classList.remove('hidden'); // ✅ Show Next button on last question
+  }  
+ else {
     setTimeout(() => {
       currentQuestion++;
       loadQuestion();
-    }, 1000); // small delay so user sees correct/wrong color
+    }, 1000);
   }
 }
-
 
 nextBtn.addEventListener('click', () => {
   endQuiz();
 });
-
-
 function endQuiz() {
   heroDialogue.textContent = "Quiz Completed!";
   questionText.textContent = `You scored ${score} out of ${quizData.length}! 🎉`;
   optionsBox.innerHTML = "";
-  
-  // Update totalScore
+
   let totalScore = parseInt(localStorage.getItem('totalScore')) || 0;
   totalScore += score;
   localStorage.setItem('totalScore', totalScore);
 
-  // Hide retry/next button
-  nextBtn.style.display = "none";
-  retryBtn.classList.add('hidden');
+  nextBtn.classList.add('hidden');  // ✅ Consistent with the rest of your code
 
-  // Show Move Next button
+
+  // Show Retry if score is below 3
+  if (score < 3) {
+    retryBtn.classList.remove('hidden');
+    return; // Stop here, do not show Move Next
+  }
+
+  // Otherwise, show Move Next button
   moveNextBtn.classList.remove('hidden');
-}
-
-function retryQuiz() {
-  // Remove last added score
+}function retryQuiz() {
   let totalScore = parseInt(localStorage.getItem('totalScore')) || 0;
   totalScore -= score;
   localStorage.setItem('totalScore', totalScore);
@@ -130,13 +124,15 @@ function retryQuiz() {
   currentQuestion = 0;
   score = 0;
   loadQuestion();
-  nextBtn.style.display = "inline-block";
-  retryBtn.classList.add('hidden');
+
+  nextBtn.classList.add('hidden');    // ✅ Hide green Next button at start
+  retryBtn.classList.add('hidden');   // ✅ Hide Retry
+  moveNextBtn.classList.add('hidden'); // ✅ Hide Move Next too (just in case)
 }
 
 // Start the first question
 loadQuestion();
-alert("you have succesfully completed the datatype and variable (or) chapter 1")
+
 moveNextBtn.addEventListener('click', () => {
-  window.location.href = "C:/Users/selva/Desktop/game/chapter 1/byte/inds.html"; // <-- Put your next page link here
+  window.location.href = "inds.html"; // <-- Your next chapter path
 });

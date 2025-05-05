@@ -115,64 +115,6 @@ const enemies = {
 // Questions Database
 const questions = {
      easy: [
-        // Variables
-        {
-            q: "Declare an integer variable named 'gold' and set it to 50:",
-            answer: [
-                "int gold = 50;",
-                "int gold= 50;",
-                "int gold=50;",
-                "int gold =50;",
-                "int \ngold = 50;"
-            ],
-            hint: "Format: 'int variablename = value;' (spaces don't matter)",
-            solution: "int gold = 50;"
-        },
-        {
-            q: "Fix this code to store age (whole number):\n___ age = 25;",
-            answer: [
-                "int age = 25;",
-                "int age=25;",
-                "int \nage = 25;",
-                "int\nage = 25;"
-            ],
-            hint: "Use 'int' for whole numbers",
-            solution: "int age = 25;"
-        },
-        {
-            q: "Declare a char variable named 'symbol' containing '$':",
-            answer: [
-                "char symbol = '$';",
-                "char symbol='$';",
-                "char \nsymbol = '$';"
-            ],
-            hint: "Chars use single quotes like '$'",
-            solution: "char symbol = '$';"
-        },
-        // Situation: Game Development
-        {
-            q: "You're making a game. Declare a boolean variable 'gameOver' and set it to false:",
-            answer: [
-                "boolean gameOver = false;",
-                "boolean gameOver=false;",
-                "boolean \ngameOver = false;"
-            ],
-            hint: "Booleans can be true or false",
-            solution: "boolean gameOver = false;"
-        },
-        // Basic Operations
-        {
-            q: "Calculate the sum of two integers (a=5, b=3) and store in 'total':",
-            answer: [
-                "int total = 5 + 3;",
-                "int total=5+3;",
-                "int a=5,b=3; int total=a+b;"
-            ],
-            hint: "Use the + operator",
-            solution: "int total = 5 + 3;"
-        }
-    ],
-    medium: [
         // Conditionals
         {
             q: "Write an if statement checking if 'health' is less than 20:",
@@ -186,6 +128,17 @@ const questions = {
             solution: "if (health < 20) {}"
         },
         {
+            q: "Write a nested if statement that checks if `x` is greater than 5 and if `y` is less than 10, then prints 'Condition met':",
+            answer: [
+              "if (x > 5) { if (y < 10) { console.log('Condition met'); } }",
+              "if (x > 5 && y < 10) { console.log('Condition met'); }",
+              "if (x < 5) { if (y > 10) { console.log('Condition met'); } }",
+              "if (x > 5) { if (y > 10) { console.log('Condition met'); } }"
+            ],
+            hint: "Use the first `if` to check `x`, then nest the second `if` to check `y`.",
+            solution: "if (x > 5) { if (y < 10) { console.log('Condition met'); } }"
+          },          
+        {
             q: "Write an if-else statement that checks if 'score' is 100 or more:",
             answer: [
                 "if(score >= 100){} else{}",
@@ -195,133 +148,141 @@ const questions = {
             hint: ">= means 'greater than or equal to'",
             solution: "if (score >= 100) {} else {}"
         },
-        // Loops
         {
-            q: "Write a for loop that runs exactly 5 times:",
+            q: "Write a nested if statement that checks if `age` is greater than 18, and if `isStudent` is true, then print 'Eligible for student discount':",
             answer: [
-                "for(int i=0;i<5;i++){}",
-                "for (int i = 0; i < 5; i++) {}",
-                "for(int i=0; i<5; i++){}"
+              "if (age > 18) { if (isStudent) { console.log('Eligible for student discount'); } }",
+              "if (age >= 18 && isStudent) { console.log('Eligible for student discount'); }",
+              "if (age > 18) { if (isStudent == false) { console.log('Eligible for student discount'); } }",
+              "if (age < 18) { if (isStudent) { console.log('Eligible for student discount'); } }"
             ],
-            hint: "Pattern: for(int; condition; increment)",
-            solution: "for (int i = 0; i < 5; i++) {}"
-        },
-        // Situation: E-commerce
+            hint: "Check `age` first, and then check if the person is a student using a second `if`.",
+            solution: "if (age > 18) { if (isStudent) { console.log('Eligible for student discount'); } }"
+          },
+          {
+            q: "Write a nested if statement to check if `temperature` is above 30 and `isRaining` is false, then print 'Perfect day for a walk!':",
+            answer: [
+              "if (temperature > 30) { if (!isRaining) { console.log('Perfect day for a walk!'); } }",
+              "if (temperature < 30 && isRaining == false) { console.log('Perfect day for a walk!'); }",
+              "if (temperature > 30 && !isRaining) { console.log('Perfect day for a walk!'); }",
+              "if (temperature > 30) { if (isRaining) { console.log('Perfect day for a walk!'); } }"
+            ],
+            hint: "First, check the temperature, then check the rain condition using `!isRaining`.",
+            solution: "if (temperature > 30) { if (!isRaining) { console.log('Perfect day for a walk!'); } }"
+          },
+          {
+            q: "Write a nested if statement to check if `x` is even and `y` is greater than 10, then print 'Valid values':",
+            answer: [
+              "if (x % 2 == 0) { if (y > 10) { console.log('Valid values'); } }",
+              "if (x % 2 != 0 && y > 10) { console.log('Valid values'); }",
+              "if (x % 2 == 0) { if (y < 10) { console.log('Valid values'); } }",
+              "if (x % 2 == 1 && y > 10) { console.log('Valid values'); }"
+            ],
+            hint: "Use `x % 2 == 0` to check if `x` is even, then check if `y` is greater than 10.",
+            solution: "if (x % 2 == 0) { if (y > 10) { console.log('Valid values'); } }"
+          }      
+    ],
+    medium :[
         {
-            q: "Calculate discounted price (20% off) for a product costing $50:",
+            q: "Write an if-else statement that checks if 'score' is above or equal to 50. If it is, print 'Passed'; otherwise, print 'Failed':",
             answer: [
-                "double discountedPrice = 50 * 0.8;",
-                "double original=50; double discounted=original*0.8;",
-                "final double DISCOUNT=0.8; double price=50*DISCOUNT;"
+              "if(score >= 50){ System.out.println(\"Passed\"); } else { System.out.println(\"Failed\"); }",
+              "if (score >= 50) { System.out.println(\"Passed\"); } else { System.out.println(\"Failed\"); }",
+              "if(score>=50){System.out.println(\"Passed\");}else{System.out.println(\"Failed\");}"
             ],
-            hint: "20% off means paying 80% of original",
-            solution: "double discountedPrice = 50 * 0.8;"
-        },
-        // Arrays
-        {
-            q: "Declare an integer array named 'scores' with 3 elements:",
+            hint: "Use if (condition) { } else { } and remember to use double quotes in println",
+            solution: "if (score >= 50) { System.out.println(\"Passed\"); } else { System.out.println(\"Failed\"); }"
+          },
+          {
+            q: "Write an if-else statement to check if 'temperature' is below 0. If true, print 'Freezing'; else print 'Not freezing':",
             answer: [
-                "int[] scores = new int[3];",
-                "int []scores=new int[3];",
-                "int[] scores=new int[3];"
+              "if(temperature < 0){ System.out.println(\"Freezing\"); } else { System.out.println(\"Not freezing\"); }",
+              "if (temperature < 0) { System.out.println(\"Freezing\"); } else { System.out.println(\"Not freezing\"); }",
+              "if(temperature<0){System.out.println(\"Freezing\");}else{System.out.println(\"Not freezing\");}"
             ],
-            hint: "Format: type[] name = new type[size];",
-            solution: "int[] scores = new int[3];"
-        }
+            hint: "Use if (condition) { } else { } and println statements.",
+            solution: "if (temperature < 0) { System.out.println(\"Freezing\"); } else { System.out.println(\"Not freezing\"); }"
+          },
+          {
+            q: "Write an if-else statement to check if 'points' is greater than 100. If true, print 'Level Up'; else print 'Keep Trying':",
+            answer: [
+              "if(points > 100){ System.out.println(\"Level Up\"); } else { System.out.println(\"Keep Trying\"); }",
+              "if (points > 100) { System.out.println(\"Level Up\"); } else { System.out.println(\"Keep Trying\"); }",
+              "if(points>100){System.out.println(\"Level Up\");}else{System.out.println(\"Keep Trying\");}"
+            ],
+            hint: "Simple if-else. Compare using > and use println with quotes.",
+            solution: "if (points > 100) { System.out.println(\"Level Up\"); } else { System.out.println(\"Keep Trying\"); }"
+          }
+          
+                
     ],
     hard: [
-        // Complex Loops
         {
-            q: "Write a while loop that runs while 'power' is greater than 0:",
+            q: "Write a nested if statement that checks if 'age' is 18 or older. If true, then check if 'hasID' is true. If both conditions are true, print 'Access granted':",
             answer: [
-                "while(power > 0){}",
-                "while (power > 0) {}",
-                "while(power>0){}"
+              "if(age >= 18){ if(hasID){ System.out.println(\"Access granted\"); } }",
+              "if (age >= 18) { if (hasID) { System.out.println(\"Access granted\"); } }",
+              "if(age>=18){if(hasID){System.out.println(\"Access granted\");}}"
             ],
-            hint: "Similar to if-statement syntax",
-            solution: "while (power > 0) {}"
-        },
-        {
-            q: "Write a nested for loop (3x3 grid pattern):",
+            hint: "One if statement inside another. Make sure to close all brackets.",
+            solution: "if (age >= 18) { if (hasID) { System.out.println(\"Access granted\"); } }"
+          },
+          {
+            q: "Write a nested if statement that checks if 'age' is 18 or older. If true, then check if 'hasID' is true. If both conditions are true, print 'Access granted':",
             answer: [
-                "for(int i=0;i<3;i++){ for(int j=0;j<3;j++){} }",
-                "for (int i=0; i<3; i++) { for (int j=0; j<3; j++) {} }"
+              "if(age >= 18){ if(hasID){ System.out.println(\"Access granted\"); } }",
+              "if (age >= 18) { if (hasID) { System.out.println(\"Access granted\"); } }",
+              "if(age>=18){if(hasID){System.out.println(\"Access granted\");}}"
             ],
-            hint: "One loop inside another",
-            solution: "for(int i=0;i<3;i++){ for(int j=0;j<3;j++){} }"
-        },
-        // Data Types
-        {
-            q: "Declare a float variable 'temperature' with value 98.6:",
+            hint: "One if statement inside another. Make sure to close all brackets.",
+            solution: "if (age >= 18) { if (hasID) { System.out.println(\"Access granted\"); } }"
+          },
+          {
+            q: "Write a nested if statement to check if `score` is greater than 50 and if `level` is 3 or higher, then print 'Level 3: You passed with a decent score'. If `score` is greater than 75, print 'Level 3: You passed with an excellent score'.",
             answer: [
-                "float temperature = 98.6f;",
-                "float temperature=98.6f;",
-                "float temperature \n = 98.6f;"
+              "if (score > 50) { if (level >= 3) { if (score > 75) { console.log('Level 3: You passed with an excellent score'); } else { console.log('Level 3: You passed with a decent score'); } } }",
+              "if (score > 50 && level >= 3) { if (score > 75) { console.log('Level 3: You passed with an excellent score'); } else { console.log('Level 3: You passed with a decent score'); } }",
+              "if (score > 50) { if (level > 3) { console.log('Level 3: You passed with a decent score'); } }",
+              "if (score < 50) { if (level >= 3) { console.log('Level 3: You passed with an excellent score'); } }"
             ],
-            hint: "Don't forget the 'f' suffix",
-            solution: "float temperature = 98.6f;"
-        },
-        // Situation: Banking System
-        {
-            q: "Calculate compound interest (principal=1000, rate=5%, years=3):",
+            hint: "Check if `score` is above 50 first, then check `level`. Use a nested `if` to check if `score` is above 75.",
+            solution: "if (score > 50) { if (level >= 3) { if (score > 75) { console.log('Level 3: You passed with an excellent score'); } else { console.log('Level 3: You passed with a decent score'); } } }"
+          },
+          {
+            q: "Write a nested if statement to check if `age` is between 18 and 25 and if `isStudent` is true, print 'You qualify for the youth discount'. If `age` is between 26 and 40 and `isEmployed` is true, print 'You qualify for the working adult discount'. If `age` is greater than 40 and `isSenior` is true, print 'You qualify for the senior citizen discount'.",
             answer: [
-                "double amount = 1000 * Math.pow(1 + 0.05, 3);",
-                "double principal=1000; double rate=0.05; int years=3; double amount=principal*Math.pow(1+rate,years);"
+              "if (age >= 18 && age <= 25) { if (isStudent) { console.log('You qualify for the youth discount'); } } else if (age >= 26 && age <= 40) { if (isEmployed) { console.log('You qualify for the working adult discount'); } } else if (age > 40) { if (isSenior) { console.log('You qualify for the senior citizen discount'); } }",
+              "if (age >= 18 && age <= 25 && isStudent) { console.log('You qualify for the youth discount'); } else if (age >= 26 && age <= 40 && isEmployed) { console.log('You qualify for the working adult discount'); } else if (age > 40 && isSenior) { console.log('You qualify for the senior citizen discount'); }",
+              "if (age < 18) { if (isStudent) { console.log('You qualify for the youth discount'); } } else if (age > 25) { if (isEmployed) { console.log('You qualify for the working adult discount'); } else if (isSenior) { console.log('You qualify for the senior citizen discount'); } }",
+              "if (age < 18) { if (isSenior) { console.log('You qualify for the senior citizen discount'); } } else if (age > 40) { if (isStudent) { console.log('You qualify for the youth discount'); } }"
             ],
-            hint: "Use Math.pow() for exponents",
-            solution: "double amount = 1000 * Math.pow(1 + 0.05, 3);"
-        },
-        // Methods
-        {
-            q: "Write a method 'isEven' that takes an integer and returns true if it's even:",
+            hint: "Use multiple `else if` conditions to check different age ranges and eligibility statuses.",
+            solution: "if (age >= 18 && age <= 25) { if (isStudent) { console.log('You qualify for the youth discount'); } } else if (age >= 26 && age <= 40) { if (isEmployed) { console.log('You qualify for the working adult discount'); } } else if (age > 40) { if (isSenior) { console.log('You qualify for the senior citizen discount'); } }"
+          },
+          {
+            q: "Write a nested if statement that checks if the variable `balance` is greater than 1000. If true, then check if `hasCreditCard` is true, and if the `creditScore` is greater than 750, print 'You qualify for the premium package'. If `creditScore` is less than or equal to 750, print 'You qualify for the standard package'. If `hasCreditCard` is false, print 'Credit card required for premium package'. If `balance` is less than or equal to 1000, print 'Balance is insufficient to qualify for the package'.",
             answer: [
-                "boolean isEven(int num){ return num%2==0; }",
-                "boolean isEven(int num) { return num % 2 == 0; }",
-                "public boolean isEven(int num){return num%2==0;}"
+              "if (balance > 1000) { if (hasCreditCard) { if (creditScore > 750) { console.log('You qualify for the premium package'); } else { console.log('You qualify for the standard package'); } } else { console.log('Credit card required for premium package'); } } else { console.log('Balance is insufficient to qualify for the package'); }",
+              "if (balance > 1000 && hasCreditCard) { if (creditScore > 750) { console.log('You qualify for the premium package'); } else { console.log('You qualify for the standard package'); } } else { console.log('Balance is insufficient to qualify for the package'); }",
+              "if (balance <= 1000) { if (hasCreditCard) { console.log('Credit card required for premium package'); } else { console.log('Balance is insufficient to qualify for the package'); } }",
+              "if (balance > 1000) { if (hasCreditCard == false) { console.log('Credit card required for premium package'); } }"
             ],
-            hint: "Use modulo operator %",
-            solution: "boolean isEven(int num) { return num % 2 == 0; }"
-        }
-    ],
-    situational: [
-        {
-            q: "Game Development: When player collects coin, increment 'score' by 10:",
+            hint: "Start by checking if the balance is sufficient, then check if the user has a credit card and credit score.",
+            solution: "if (balance > 1000) { if (hasCreditCard) { if (creditScore > 750) { console.log('You qualify for the premium package'); } else { console.log('You qualify for the standard package'); } } else { console.log('Credit card required for premium package'); } } else { console.log('Balance is insufficient to qualify for the package'); }"
+          },
+          {
+            q: "Write a nested if statement that checks if `itemCount` is greater than 0, and if `itemType` is 'electronic', check if `warranty` is valid (i.e., `warranty` is true), then print 'Eligible for return'. If `itemType` is 'clothing', check if the `returnWindow` is less than 30 days, then print 'Eligible for return'. If the `itemCount` is 0, print 'No items to return'.",
             answer: [
-                "score += 10;",
-                "score = score + 10;",
-                "score+=10;"
+              "if (itemCount > 0) { if (itemType === 'electronic') { if (warranty) { console.log('Eligible for return'); } } else if (itemType === 'clothing') { if (returnWindow < 30) { console.log('Eligible for return'); } } } else { console.log('No items to return'); }",
+              "if (itemCount > 0) { if (itemType === 'electronic' && warranty) { console.log('Eligible for return'); } else if (itemType === 'clothing' && returnWindow < 30) { console.log('Eligible for return'); } } else { console.log('No items to return'); }",
+              "if (itemCount <= 0) { console.log('No items to return'); } else { if (itemType === 'electronic') { if (warranty) { console.log('Eligible for return'); } } else { if (itemType === 'clothing') { if (returnWindow < 30) { console.log('Eligible for return'); } } } }",
+              "if (itemCount > 0) { if (itemType === 'electronic') { if (returnWindow < 30) { console.log('Eligible for return'); } } else { if (itemType === 'clothing') { if (warranty) { console.log('Eligible for return'); } } } } else { console.log('No items to return'); }"
             ],
-            hint: "Shortcut: += operator",
-            solution: "score += 10;"
-        },
-        {
-            q: "E-commerce: Apply 10% tax to subtotal of $45.50:",
-            answer: [
-                "double total = 45.50 * 1.10;",
-                "double subtotal=45.50; double total=subtotal*1.10;"
-            ],
-            hint: "10% tax = multiply by 1.10",
-            solution: "double total = 45.50 * 1.10;"
-        },
-        {
-            q: "Weather App: Convert Celsius (22.5) to Fahrenheit:",
-            answer: [
-                "double fahrenheit = 22.5 * 9/5 + 32;",
-                "double celsius=22.5; double fahr=celsius*9/5+32;"
-            ],
-            hint: "Formula: (C × 9/5) + 32",
-            solution: "double fahrenheit = 22.5 * 9/5 + 32;"
-        },
-        {
-            q: "Social Media: Check if username length is between 5-15 characters:",
-            answer: [
-                "if(username.length() >=5 && username.length() <=15){}",
-                "if (username.length()>=5 && username.length()<=15) {}"
-            ],
-            hint: "Use && for AND condition",
-            solution: "if(username.length() >=5 && username.length() <=15){}"
-        }
+            hint: "First check if there are items to return, then add conditions for each `itemType` and their specific return requirements.",
+            solution: "if (itemCount > 0) { if (itemType === 'electronic') { if (warranty) { console.log('Eligible for return'); } } else if (itemType === 'clothing') { if (returnWindow < 30) { console.log('Eligible for return'); } } } else { console.log('No items to return'); }"
+          }
     ]
+   
 };
 
 // Initialize the game
@@ -402,6 +363,61 @@ async function askQuestion(enemyType) {
     elements.playerAnswer.value = "";
     elements.playerAnswer.focus();
 }
+// Hero takes damage
+function dealDamageToHero() {
+    const hero = gameState.hero;  // Assuming this stores the hero's details
+    gameState.heroHealth -= hero.damagePerAttack;  // Update health or damage taken
+    elements.heroHealthBar.style.width = `${(gameState.heroHealth / hero.maxHealth) * 100}%`;
+
+    // Add blink red effect to hero image
+    if (elements.heroImg) {
+        elements.heroImg.classList.add('blink-red');
+    }
+
+    // Remove blink effect after 4 seconds
+    setTimeout(() => {
+        if (elements.heroImg) {
+            elements.heroImg.classList.remove('blink-red');
+        }
+    }, 4000);
+
+    if (gameState.heroHealth <= 0) {
+        endBattle(false);
+    }
+}
+
+// Player deals damage to enemy
+function dealDamage() {
+    const enemy = enemies[gameState.currentEnemy];
+    gameState.questionsAnswered++;
+
+    const damage = enemy.health / enemy.questionsNeeded;
+    gameState.enemyHealth = Math.max(0, gameState.enemyHealth - damage);
+    elements.enemyHealthBar.style.width = `${(gameState.enemyHealth / enemy.health) * 100}%`;
+
+    // Add blink red effect to enemy image
+    if (elements.enemyImg) {
+        elements.enemyImg.classList.add('blink-red');
+    }
+
+    // Remove blink effect after 4 seconds
+    setTimeout(() => {
+        if (elements.enemyImg) {
+            elements.enemyImg.classList.remove('blink-red');
+        }
+    }, 4000);
+
+    if (gameState.enemyHealth <= 0) {
+        endBattle(true);
+    } else if (gameState.questionsAnswered >= enemy.questionsNeeded) {
+        gameState.enemyHealth = 0;
+        elements.enemyHealthBar.style.width = "0%";
+        endBattle(true);
+    } else {
+        setTimeout(enemyAttack, 1000);
+    }
+}
+
 
 function cleanString(str) {
     return str.replace(/\s+/g, '').toLowerCase();  // Removes all spaces and converts to lowercase
@@ -459,6 +475,7 @@ function dealDamage() {
         setTimeout(enemyAttack, 1000);
     }
 }
+
 
 // Enemy attacks player
 function enemyAttack() {
@@ -595,6 +612,7 @@ function resetGame() {
     startNextEncounter();
 }
 
+
 function showSolution() {
     if (!gameState.currentSolution) {
         console.error("No solution available!");
@@ -608,4 +626,11 @@ function showSolution() {
     // Alternative: Display in the UI (e.g., a popup or hint box)
     // elements.hintText.textContent = `Solution: ${gameState.currentSolution}`;
     // elements.hintText.classList.remove("hidden");
+}
+function endModule() {
+    // Optional: show a message or animation before redirect
+    alert("Module Complete! You've mastered:\n\n- Basic Data Types\n- variables\n- input and output statement");
+
+    // Redirect to another page (e.g., summary.html or nextModule.html)
+    window.location.href = "../../chapter page.html";
 }

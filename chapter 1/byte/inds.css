@@ -312,4 +312,21 @@ body {
         width: 100%;
         margin: 5px 0;
     }
+}/* Blink Red Effect for Enemy */
+/* Blink Red Effect for Hero */
+.blink-red {
+    animation: blink 0.5s ease-in-out 4;
 }
+
+@keyframes blink {
+    0% {
+        filter: brightness(1);
+    }
+    50% {
+        filter: brightness(0.5) sepia(1) hue-rotate(90deg);
+    }
+    100% {
+        filter: brightness(1);
+    }
+}
+

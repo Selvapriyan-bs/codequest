@@ -402,6 +402,61 @@ async function askQuestion(enemyType) {
     elements.playerAnswer.value = "";
     elements.playerAnswer.focus();
 }
+// Hero takes damage
+function dealDamageToHero() {
+    const hero = gameState.hero;  // Assuming this stores the hero's details
+    gameState.heroHealth -= hero.damagePerAttack;  // Update health or damage taken
+    elements.heroHealthBar.style.width = `${(gameState.heroHealth / hero.maxHealth) * 100}%`;
+
+    // Add blink red effect to hero image
+    if (elements.heroImg) {
+        elements.heroImg.classList.add('blink-red');
+    }
+
+    // Remove blink effect after 4 seconds
+    setTimeout(() => {
+        if (elements.heroImg) {
+            elements.heroImg.classList.remove('blink-red');
+        }
+    }, 4000);
+
+    if (gameState.heroHealth <= 0) {
+        endBattle(false);
+    }
+}
+
+// Player deals damage to enemy
+function dealDamage() {
+    const enemy = enemies[gameState.currentEnemy];
+    gameState.questionsAnswered++;
+
+    const damage = enemy.health / enemy.questionsNeeded;
+    gameState.enemyHealth = Math.max(0, gameState.enemyHealth - damage);
+    elements.enemyHealthBar.style.width = `${(gameState.enemyHealth / enemy.health) * 100}%`;
+
+    // Add blink red effect to enemy image
+    if (elements.enemyImg) {
+        elements.enemyImg.classList.add('blink-red');
+    }
+
+    // Remove blink effect after 4 seconds
+    setTimeout(() => {
+        if (elements.enemyImg) {
+            elements.enemyImg.classList.remove('blink-red');
+        }
+    }, 4000);
+
+    if (gameState.enemyHealth <= 0) {
+        endBattle(true);
+    } else if (gameState.questionsAnswered >= enemy.questionsNeeded) {
+        gameState.enemyHealth = 0;
+        elements.enemyHealthBar.style.width = "0%";
+        endBattle(true);
+    } else {
+        setTimeout(enemyAttack, 1000);
+    }
+}
+
 
 function cleanString(str) {
     return str.replace(/\s+/g, '').toLowerCase();  // Removes all spaces and converts to lowercase
@@ -459,6 +514,7 @@ function dealDamage() {
         setTimeout(enemyAttack, 1000);
     }
 }
+
 
 // Enemy attacks player
 function enemyAttack() {
@@ -595,6 +651,7 @@ function resetGame() {
     startNextEncounter();
 }
 
+
 function showSolution() {
     if (!gameState.currentSolution) {
         console.error("No solution available!");
@@ -614,5 +671,5 @@ function endModule() {
     alert("Module Complete! You've mastered:\n\n- Basic Data Types\n- variables\n- input and output statement");
 
     // Redirect to another page (e.g., summary.html or nextModule.html)
-    window.location.href = "C:/Users/selva/Desktop/game/chapter page.html";
+    window.location.href = "../../chapter page.html";
 }
